@@ -12,7 +12,7 @@ def send_request():
         response = requests.get(
             url=pull_url,
             params={
-                "fordate": "20171018"
+                "fordate": "20171017"
             },
             headers={
                 "Authorization": "Basic " + base64.b64encode('{}:{}'.format("borrascador","temporary").encode('utf-8')).decode('ascii')
