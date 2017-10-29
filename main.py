@@ -5,6 +5,8 @@ import base64
 import requests
 import json
 
+from secret import *
+
 def send_request():
     pull_url = r"https://api.mysportsfeeds.com/v1.1/pull/nba/2017-2018-regular/scoreboard.json"
 
@@ -15,7 +17,7 @@ def send_request():
                 "fordate": "20171017"
             },
             headers={
-                "Authorization": "Basic " + base64.b64encode('{}:{}'.format("borrascador","temporary").encode('utf-8')).decode('ascii')
+                "Authorization": "Basic " + base64.b64encode('{}:{}'.format(USERNAME,PASSWORD).encode('utf-8')).decode('ascii')
             }
         )
         print('Response HTTP Status Code: {status_code}'.format(
