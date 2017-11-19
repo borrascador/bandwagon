@@ -10,7 +10,7 @@ from secret import *
 def send_request():
     pull_url = r"https://api.mysportsfeeds.com/v1.1/pull/nba/2017-2018-regular/team_gamelogs.json"
     
-    teams = [
+    team_ids = [
             'HOU', 'UTA', 'LAC', 'ATL', 'CHI', 
             'LAL', 'CLE', 'NOP', 'DEN', 'SAS', 
             'NYK', 'DET', 'DAL', 'WAS', 'MIA', 
@@ -19,7 +19,7 @@ def send_request():
             'SAC', 'TOR', 'PHI', 'MEM', 'OKL'
             ]
 
-    streaks = {}
+    streaks = []
     
     for team in teams:
         try:
@@ -35,10 +35,12 @@ def send_request():
             print('Response HTTP Status Code: {status_code}'.format(
                 status_code=response.status_code))
             json_data = json.loads(response.text)
-            streaks[team] = {
+            streaks.append({
+                    "team": team,
+                    "name": json_data['teamgamelogs']['gamelogs'][0]['team']['Name'],
                     "wins": get_win_total(json_data),
                     "streak": get_current_streak(json_data)
-                    }
+                    })
         except requests.exceptions.RequestException: 
             print('HTTP Request failed')
 
