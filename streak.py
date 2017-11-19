@@ -10,7 +10,7 @@ from secret import *
 def send_request():
     pull_url = r"https://api.mysportsfeeds.com/v1.1/pull/nba/2017-2018-regular/team_gamelogs.json"
     
-    team_ids = [
+    teams = [
             'HOU', 'UTA', 'LAC', 'ATL', 'CHI', 
             'LAL', 'CLE', 'NOP', 'DEN', 'SAS', 
             'NYK', 'DET', 'DAL', 'WAS', 'MIA', 
