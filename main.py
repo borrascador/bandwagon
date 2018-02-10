@@ -1,6 +1,6 @@
 import tweepy
 import time
-from bandwagon import write_message
+from write import write_message
 from secret import *
 
 line = write_message()
@@ -13,4 +13,3 @@ api = tweepy.API(auth)
 api.update_status(line)
 
 print("@{} tweeted @ {}:\n{}".format(api.me().screen_name, time.ctime(),line))
-

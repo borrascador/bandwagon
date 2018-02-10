@@ -23,3 +23,6 @@ Session.vim
 
 # Auto-generated tag files
 tags
+
+# JSON Files
+*.json
